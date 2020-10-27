@@ -1,0 +1,46 @@
+.sections {
+}
+.box {
+  width: 300px;
+  margin: auto;
+  background-color: black;
+  color: white;
+  padding: 1rem 0;
+}
+.fs05 {
+  font-size: 0.5rem;
+}
+.fs1 {
+  font-size: 1rem;
+}
+.fs2 {
+  font-size: 2rem;
+}
+.fs3 {
+  font-size: 3rem;
+}
+.fs4 {
+  font-size: 4rem;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.slide {
+  white-space: nowrap;
+  -webkit-animation: rtl 4s linear;
+  margin-right: 500px;
+}
+@-webkit-keyframes rtl {
+  0% {
+    margin-right: 0;
+  }
+  50% {
+    margin-right: 100%;
+  }
+  100% {
+    margin-right: 0;
+  }
+}
