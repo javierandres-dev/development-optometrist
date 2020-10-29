@@ -7,49 +7,63 @@
     <title>Valentina</title>
   </head>
   <body>
-    <h1 class="title">Prueba de agudeza visual dinámica</h1>
+    <h1 class="title">Prueba dinámica de agudeza visual</h1>
     <section class="sections">
       <h2 class="subtitle"></h2>
+      <div id="show" class="show"></div>
       <form id="form">
-        <p for="category">Mostrar:</p>
-        <input type="radio" name="category" value="alphabet" required />
-        <label for="alphabet">Letras</label>
-        <input type="radio" name="category" value="numbers" required />
-        <label for="numbers">Números</label>
-        <input type="radio" name="category" value="animals" required />
-        <label for="animals">Nombre de animales</label>
-        <input type="radio" name="category" value="countries" required />
-        <label for="countries">Nombre de paises</label>
-        <p for="size">Tamaño de la fuente:</p>
-        <input type="radio" name="size" value="05" required />
-        <label for="05">0.5x</label>
-        <input type="radio" name="size" value="1" required />
-        <label for="1">1x</label>
-        <input type="radio" name="size" value="2" required />
-        <label for="2">2x</label>
-        <input type="radio" name="size" value="3" required />
-        <label for="3">3x</label>
-        <input type="radio" name="size" value="4" required />
-        <label for="4">4x</label>
-        <p for="interval">Intervalo:</p>
-        <input type="radio" name="interval" value="500" required />
-        <label for="500">0.5 segundos</label>
-        <input type="radio" name="interval" value="1000" required />
-        <label for="1000">1 segundo</label>
-        <input type="radio" name="interval" value="2000" required />
-        <label for="2000">2 segundos</label>
-        <input type="radio" name="interval" value="3000" required />
-        <label for="3000">3 segundos</label>
-        <p for="efect">Deslizar (opcional):</p>
-        <input type="radio" name="efect" value="move" />
-        <label for="move">Carrusel</label>
+        <fieldset>
+          <legend for="content">Contenido:</legend>
+          <input type="radio" name="content" value="alphabet" required />
+          <label for="alphabet" class="op">Letras</label>
+          <input type="radio" name="content" value="numbers" />
+          <label for="numbers">Números</label>
+          <input type="radio" name="content" value="animals" />
+          <label for="animals">Nombre de animales</label>
+          <input type="radio" name="content" value="countries" />
+          <label for="countries">Nombre de paises</label>
+        </fieldset>
+        <fieldset>
+          <legend for="size">Tamaño de la fuente:</legend>
+          <input type="radio" name="size" value="05" required />
+          <label for="05">0.5x</label>
+          <input type="radio" name="size" value="1" />
+          <label for="1">1x</label>
+          <input type="radio" name="size" value="2" />
+          <label for="2">2x</label>
+          <input type="radio" name="size" value="3" />
+          <label for="3">3x</label>
+          <input type="radio" name="size" value="4" />
+          <label for="4">4x</label>
+        </fieldset>
+        <fieldset>
+          <legend for="move">Movimiento:</legend>
+          <input type="radio" name="move" value="motionless" required />
+          <label for="motionless">Ninguno</label>
+          <input type="radio" name="move" value="x-ltr" />
+          <label for="x-ltr">Horizontal: Izquierda a derecha</label>
+          <input type="radio" name="move" value="x-rtl" />
+          <label for="x-rtl">Horizontal: Derecha a izquierda</label>
+        </fieldset>
+        <fieldset>
+          <legend for="speed">Velocidad:</legend>
+          <input type="radio" name="speed" value="10" />
+          <label for="10">1x</label>
+          <input type="radio" name="speed" value="7.5" />
+          <label for="7.5">2x</label>
+          <input type="radio" name="speed" value="5" />
+          <label for="5">3x</label>
+          <input type="radio" name="speed" value="2.5" />
+          <label for="2.5">4x</label>
+          <input type="radio" name="speed" value="1" />
+          <label for="1">5x</label>
+        </fieldset>
         <br />
         <button type="submit">Iniciar</button>
         <button type="button" name="stop">Detener</button>
       </form>
-      <p id="show"></p>
     </section>
-    <div class="box tr slide">Testing</div>
+    <!--<div class="show"><div class="x-ltr">abcdefghijklmnñopqrstuvwxyz</div></div>-->
   </body>
   <script src="./scripts/script.js"></script>
 </html>

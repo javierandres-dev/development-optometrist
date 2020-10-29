@@ -56,47 +56,53 @@ const d = document,
     "Venezuela",
   ],
   numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-getElements = (category) => {
+d.addEventListener("DOMContentLoaded", (e) => {
+  show("form");
+});
+show = (id) => {
+  const $form = d.getElementById(id);
+  let showContent;
+  d.addEventListener("submit", (e) => {
+    if (e.target === $form) {
+      e.preventDefault();
+      const $show = d.getElementById("show"),
+        content = $form.content.value,
+        $size = $form.size.value,
+        $move = $form.move.value,
+        $div = d.createElement("div");
+      if ($move === "motionless") {
+        $speed = $form.speed.value;
+        showContent = setInterval(() => {
+          $div.innerText = getElements(content);
+          $div.classList.add(`fs-${$size}`, `${$move}`);
+          $div.style["animationDuration"] = `${$speed}s`;
+          $show.appendChild($div);
+        }, 5000);
+      } else {
+        console.log("Working");
+      }
+    }
+  });
+  d.addEventListener("click", (e) => {
+    if (e.target === $form.stop) {
+      clearInterval(showContent);
+    }
+  });
+};
+getElements = (content) => {
   let arr;
-  if (category === "alphabet") {
+  if (content === "alphabet") {
     arr = alphabet;
   }
-  if (category === "animals") {
+  if (content === "animals") {
     arr = animals;
   }
-  if (category === "countries") {
+  if (content === "countries") {
     arr = countries;
   }
-  if (category === "numbers") {
+  if (content === "numbers") {
     arr = numbers;
   }
   idx = Math.floor(Math.random() * arr.length);
   return arr[idx];
 };
-show = (id) => {
-  const $form = d.getElementById(id);
-  let showResult;
-  d.addEventListener("submit", (e) => {
-    if (e.target === $form) {
-      e.preventDefault();
-      const $show = d.getElementById("show"),
-        $size = $form.size.value,
-        category = $form.category.value,
-        span = d.createElement("span");
-      $show.classList.add("box");
-      showResult = setInterval(() => {
-        span.classList.add(`fs${$size}`, "carousel");
-        span.innerText = getElements(category);
-        $show.appendChild(span);
-      }, $form.interval.value);
-    }
-  });
-  d.addEventListener("click", (e) => {
-    if (e.target === $form.stop) {
-      clearInterval(showResult);
-    }
-  });
-};
-d.addEventListener("DOMContentLoaded", (e) => {
-  show("form");
-});
