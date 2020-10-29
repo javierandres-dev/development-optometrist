@@ -61,3 +61,45 @@
     opacity: 1;
   }
 }
+.y-ttb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  animation-name: ym-ttb;
+  animation-duration: 3s;
+}
+@keyframes ym-ttb {
+  0% {
+    margin-top: 0;
+    width: 200%;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+.y-btt {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  animation-name: ym-btt;
+  animation-duration: 3s;
+}
+@keyframes ym-btt {
+  0% {
+    margin-top: 0;
+    width: 200%;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
