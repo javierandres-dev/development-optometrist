@@ -15,6 +15,11 @@ h1 {
   background-color: black;
   color: white;
   position: relative;
+  overflow: hidden;
+}
+.messages {
+  text-align: center;
+  font-weight: bold;
 }
 input {
   margin: 0.4rem;

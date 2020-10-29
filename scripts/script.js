@@ -61,13 +61,31 @@ d.addEventListener("DOMContentLoaded", (e) => {
 });
 show = (id) => {
   const $form = d.getElementById(id),
+    $btnStart = $form.start,
+    $btnEnd = $form.end,
     $show = d.getElementById("show"),
+    $messages = d.getElementById("messages"),
     $div = d.createElement("div");
-  let showContent;
+  let showMessage,
+    showContent,
+    inputs = 0;
+  d.addEventListener("change", (e) => {
+    if (e.target) inputs += 1;
+    if (inputs === 5) $btnStart.disabled = false;
+    if (inputs > 5) {
+      $messages.innerText = "Seleccione solo una opción por parámetro.";
+      inputs = 0;
+      $btnStart.disabled = true;
+      $btnEnd.disabled = true;
+      $form.reset();
+    }
+  });
   d.addEventListener("submit", (e) => {
     if (e.target === $form) {
       e.preventDefault();
-      const content = $form.content.value,
+      $btnEnd.disabled = false;
+      $btnStart.disabled = true;
+      const $content = $form.content.value,
         $size = $form.size.value,
         $weight = $form.weight.value,
         $move = $form.move.value,
@@ -78,8 +96,14 @@ show = (id) => {
       if ($move !== "motionless") {
         $div.style["animationDuration"] = `${$speed}s`;
       }
+      let starting = $speed - 1;
+      showMessage = setInterval(() => {
+        $messages.innerText = `Iniciará en: ${starting--}`;
+      }, 1000);
       showContent = setInterval(() => {
-        $div.innerText = getElements(content);
+        clearInterval(showMessage);
+        $messages.innerText = "";
+        $div.innerText = getElements($content);
         $show.appendChild($div);
       }, $speed * 1000);
     }
@@ -87,8 +111,11 @@ show = (id) => {
   d.addEventListener("click", (e) => {
     if (e.target === $form.end) {
       clearInterval(showContent);
+      inputs = 0;
       $show.removeChild($div);
       $form.reset();
+      $btnStart.disabled = true;
+      $btnEnd.disabled = true;
     }
   });
 };
