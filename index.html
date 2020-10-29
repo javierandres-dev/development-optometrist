@@ -8,8 +8,7 @@
   </head>
   <body>
     <h1 class="title">Prueba dinámica de agudeza visual</h1>
-    <section class="sections">
-      <h2 class="subtitle"></h2>
+    <section>
       <div id="show" class="show"></div>
       <form id="form">
         <fieldset>
@@ -37,6 +36,17 @@
           <label for="4">4x</label>
         </fieldset>
         <fieldset>
+          <legend for="weight">Grosor de la fuente:</legend>
+          <input type="radio" name="weight" value="lighter" />
+          <label for="lighter">0.5x</label>
+          <input type="radio" name="weight" value="normal" />
+          <label for="normal">1x</label>
+          <input type="radio" name="weight" value="bold" />
+          <label for="bold">1.5x</label>
+          <input type="radio" name="weight" value="bolder" />
+          <label for="bolder">2x</label>
+        </fieldset>
+        <fieldset>
           <legend for="move">Movimiento:</legend>
           <input type="radio" name="move" value="motionless" required />
           <label for="motionless">Ninguno</label>
@@ -48,14 +58,14 @@
           <label for="y-ttb">&#8595;</label>
           <input type="radio" name="move" value="y-btt" />
           <label for="y-btt">&#8593;</label>
-          <input type="radio" name="move" value="" />
-          <label for="">&#8600;</label>
-          <input type="radio" name="move" value="" />
-          <label for="">&#8598;</label>
-          <input type="radio" name="move" value="" />
-          <label for="">&#8601;</label>
-          <input type="radio" name="move" value="" />
-          <label for="">&#8599;</label>
+          <input type="radio" name="move" value="d-ttb" />
+          <label for="d-ttb">&#8600;</label>
+          <input type="radio" name="move" value="d-btt" />
+          <label for="d-btt">&#8598;</label>
+          <input type="radio" name="move" value="ad-ttb" />
+          <label for="ad-ttb">&#8601;</label>
+          <input type="radio" name="move" value="ad-btt" />
+          <label for="ad-btt">&#8599;</label>
         </fieldset>
         <fieldset>
           <legend for="speed">Velocidad:</legend>
@@ -72,10 +82,9 @@
         </fieldset>
         <br />
         <button type="submit">Iniciar</button>
-        <button type="button" name="stop">Detener</button>
+        <button type="button" name="end">Finalizar</button>
       </form>
     </section>
-    <div class="show"><div class="y-btt">abcdefghijklmnñopqrstuvwxyz</div></div>
   </body>
   <script src="./scripts/script.js"></script>
 </html>

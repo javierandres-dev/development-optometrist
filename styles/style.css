@@ -1,8 +1,9 @@
-.d-flex {
-  display: flex;
-  flex-direction: column;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
-.sections {
+.title {
+  text-align: center;
 }
 .show {
   width: 300px;
@@ -11,11 +12,9 @@
   background-color: black;
   color: white;
   position: relative;
-  overflow: hidden;
 }
 .motionless {
   position: absolute;
-  margin: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -24,20 +23,16 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0;
   animation-name: xm-ltr;
+  animation-timing-function: linear;
+  animation-delay: 0;
 }
-
 @keyframes xm-ltr {
   0% {
     margin-left: -100%;
-    width: 200%;
-    opacity: 1;
   }
   100% {
     margin-left: 100%;
-    width: 100%;
-    opacity: 1;
   }
 }
 .x-rtl {
@@ -45,20 +40,16 @@
   top: 50%;
   transform: translateY(-50%);
   text-align: right;
-  opacity: 0;
   animation-name: xm-rtl;
+  animation-timing-function: linear;
+  animation-delay: 0;
 }
-
 @keyframes xm-rtl {
   0% {
     margin-left: 100%;
-    width: 200%;
-    opacity: 1;
   }
   100% {
     margin-left: -100%;
-    width: 100%;
-    opacity: 1;
   }
 }
 .y-ttb {
@@ -66,20 +57,16 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  opacity: 0;
   animation-name: ym-ttb;
-  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 0;
 }
 @keyframes ym-ttb {
   0% {
-    margin-top: 0;
-    width: 200%;
-    opacity: 1;
+    margin-top: -25%;
   }
   100% {
-    margin-top: 100%;
-    width: 100%;
-    opacity: 1;
+    margin-top: 50%;
   }
 }
 .y-btt {
@@ -87,19 +74,87 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  opacity: 0;
   animation-name: ym-btt;
-  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 0;
 }
 @keyframes ym-btt {
   0% {
-    margin-top: 0;
-    width: 200%;
-    opacity: 1;
+    margin-top: 50%;
   }
   100% {
-    margin-top: 100%;
-    width: 100%;
-    opacity: 1;
+    margin-top: -25%;
+  }
+}
+.d-ttb {
+  position: relative;
+  animation-name: dm-ttb;
+  animation-timing-function: linear;
+  animation-delay: 0;
+}
+@keyframes dm-ttb {
+  0% {
+    top: -10%;
+    left: -10%;
+  }
+  100% {
+    top: 100%;
+    left: 110%;
+  }
+}
+.d-btt {
+  position: relative;
+  animation-name: dm-btt;
+  animation-timing-function: linear;
+  animation-delay: 0;
+}
+@keyframes dm-btt {
+  0% {
+    top: 100%;
+    left: 110%;
+  }
+  100% {
+    top: -10%;
+    left: -10%;
+  }
+}
+.ad-ttb {
+  position: relative;
+  text-align: right;
+  animation-name: adm-ttb;
+  animation-timing-function: linear;
+  animation-delay: 0;
+}
+@keyframes adm-ttb {
+  0% {
+    top: -10%;
+    right: -10%;
+  }
+  100% {
+    top: 100%;
+    right: 110%;
+  }
+}
+.ad-btt {
+  position: relative;
+  text-align: right;
+  animation-name: adm-btt;
+  animation-timing-function: linear;
+  animation-delay: 0;
+}
+@keyframes adm-btt {
+  0% {
+    top: 100%;
+    right: 110%;
+  }
+  100% {
+    top: -10%;
+    right: -10%;
+  }
+}
+@media (min-width: 768px) {
+  .show {
+    width: 600px;
+    height: 300px;
   }
 }

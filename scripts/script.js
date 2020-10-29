@@ -60,18 +60,20 @@ d.addEventListener("DOMContentLoaded", (e) => {
   show("form");
 });
 show = (id) => {
-  const $form = d.getElementById(id);
+  const $form = d.getElementById(id),
+    $show = d.getElementById("show"),
+    $div = d.createElement("div");
   let showContent;
   d.addEventListener("submit", (e) => {
     if (e.target === $form) {
       e.preventDefault();
-      const $show = d.getElementById("show"),
-        content = $form.content.value,
+      const content = $form.content.value,
         $size = $form.size.value,
+        $weight = $form.weight.value,
         $move = $form.move.value,
-        $speed = $form.speed.value,
-        $div = d.createElement("div");
+        $speed = $form.speed.value;
       $div.style.fontSize = `${$size}rem`;
+      $div.style.fontWeight = `${$weight}`;
       $div.classList.add(`${$move}`);
       if ($move !== "motionless") {
         $div.style["animationDuration"] = `${$speed}s`;
@@ -83,8 +85,10 @@ show = (id) => {
     }
   });
   d.addEventListener("click", (e) => {
-    if (e.target === $form.stop) {
+    if (e.target === $form.end) {
       clearInterval(showContent);
+      $show.removeChild($div);
+      $form.reset();
     }
   });
 };
