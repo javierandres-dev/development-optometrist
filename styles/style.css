@@ -3,7 +3,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
-.title {
+h1 {
   text-align: center;
 }
 .show {
@@ -15,6 +15,9 @@ body {
   background-color: black;
   color: white;
   position: relative;
+}
+input {
+  margin: 0.4rem;
 }
 .motionless {
   position: absolute;
@@ -155,6 +158,17 @@ body {
     right: -10%;
   }
 }
+.btn-group {
+  text-align: center;
+}
+.btn-group button {
+  width: 120px;
+  padding: 1rem;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+}
 @media (min-width: 768px) {
   body {
     max-width: 720px;
@@ -166,10 +180,4 @@ body {
   .btn-group button {
     width: 160px;
   }
-}
-.btn-group {
-  text-align: center;
-}
-.btn-group button {
-  width: 120px;
 }
