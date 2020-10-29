@@ -1,7 +1,8 @@
-.sections {
+.d-flex {
+  display: flex;
+  flex-direction: column;
 }
-.d-none {
-  display: none;
+.sections {
 }
 .show {
   width: 300px;
@@ -11,21 +12,6 @@
   color: white;
   position: relative;
   overflow: hidden;
-}
-.fs-05 {
-  font-size: 0.5rem;
-}
-.fs-1 {
-  font-size: 1rem;
-}
-.fs-2 {
-  font-size: 2rem;
-}
-.fs-3 {
-  font-size: 3rem;
-}
-.fs-4 {
-  font-size: 4rem;
 }
 .motionless {
   position: absolute;
@@ -50,6 +36,27 @@
   }
   100% {
     margin-left: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+.x-rtl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  opacity: 0;
+  animation-name: xm-rtl;
+}
+
+@keyframes xm-rtl {
+  0% {
+    margin-left: 100%;
+    width: 200%;
+    opacity: 1;
+  }
+  100% {
+    margin-left: -100%;
     width: 100%;
     opacity: 1;
   }

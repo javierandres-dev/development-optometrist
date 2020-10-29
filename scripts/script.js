@@ -69,18 +69,17 @@ show = (id) => {
         content = $form.content.value,
         $size = $form.size.value,
         $move = $form.move.value,
+        $speed = $form.speed.value,
         $div = d.createElement("div");
-      if ($move === "motionless") {
-        $speed = $form.speed.value;
-        showContent = setInterval(() => {
-          $div.innerText = getElements(content);
-          $div.classList.add(`fs-${$size}`, `${$move}`);
-          $div.style["animationDuration"] = `${$speed}s`;
-          $show.appendChild($div);
-        }, 5000);
-      } else {
-        console.log("Working");
+      $div.style.fontSize = `${$size}rem`;
+      $div.classList.add(`${$move}`);
+      if ($move !== "motionless") {
+        $div.style["animationDuration"] = `${$speed}s`;
       }
+      showContent = setInterval(() => {
+        $div.innerText = getElements(content);
+        $show.appendChild($div);
+      }, $speed * 1000);
     }
   });
   d.addEventListener("click", (e) => {
