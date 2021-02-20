@@ -11,7 +11,7 @@ How does it look? Take a look at []()
 * JavaScript
 
 ## Directories
-:open_file_folder: 0x00 - First version, last update Oct 29, 2020
+:open_file_folder: 0x00 - First version, last update Oct 29, 2020  
 :open_file_folder: 0x01 - Last update Feb 2, 2021
 
 ## Software engineer
