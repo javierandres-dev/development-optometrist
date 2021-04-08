@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="robots" content="index, follow" />
     <meta name="description" content="Prueba dinámica de agudeza visual" />
     <meta
@@ -25,90 +25,163 @@
     <title>Optometrist</title>
   </head>
   <body>
-    <h1>Prueba dinámica de agudeza visual</h1>
-    <section>
+    <main role="main" class="container">
+      <h1 class="title">Prueba dinámica de agudeza visual</h1>
       <div id="display" class="display"></div>
       <p id="messages" class="messages"></p>
-      <form id="form">
+      <form id="myForm" class="my-form">
+        <fieldset>
+          <legend>Pantalla</legend>
+          <div class="lain">
+            <label for="bgColor">Color del fondo:</label>
+            <input type="color" name="bgColor" id="bgColor" value="#000000" />
+          </div>
+          <div class="lain">
+            <label for="bgOpacity">Opacidad del fondo:</label>
+            <input
+              type="range"
+              id="bgOpacity"
+              name="bgOpacity"
+              min="0"
+              max="1"
+              step="0.1"
+              value="1"
+            />
+          </div>
+          <div class="lain">
+            <label for="contentColor">Color del contenido:</label>
+            <input
+              type="color"
+              name="contentColor"
+              id="contentColor"
+              value="#ffffff"
+            />
+          </div>
+          <div class="lain">
+            <label for="contentOpacity">Opacidad del contenido:</label>
+            <input
+              type="range"
+              id="contentOpacity"
+              name="contentOpacity"
+              min="0"
+              max="1"
+              step="0.1"
+              value="1"
+            />
+          </div>
+        </fieldset>
         <fieldset>
           <legend for="content">Contenido:</legend>
-          <input type="radio" name="content" value="alphabet" required />
-          <label for="alphabet" class="op">Letras</label>
-          <input type="radio" name="content" value="numbers" />
-          <label for="numbers">Números</label>
-          <input type="radio" name="content" value="animals" />
-          <label for="animals">Nombre de animales</label>
-          <input type="radio" name="content" value="countries" />
-          <label for="countries">Nombre de paises</label>
+          <div class="lain">
+            <input type="radio" name="content" value="alphabet" required />
+            <label for="alphabet">Letras</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="content" value="numbers" />
+            <label for="numbers">Números</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="content" value="animals" />
+            <label for="animals">Nombre de animales</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="content" value="countries" />
+            <label for="countries">Nombre de paises</label>
+          </div>
         </fieldset>
         <fieldset>
           <legend for="size">Tamaño de la fuente:</legend>
-          <input type="radio" name="size" value="0.5" required />
-          <label for="0.5">0.5x</label>
-          <input type="radio" name="size" value="1" />
-          <label for="1">1x</label>
-          <input type="radio" name="size" value="2" />
-          <label for="2">2x</label>
-          <input type="radio" name="size" value="3" />
-          <label for="3">3x</label>
-          <input type="radio" name="size" value="4" />
-          <label for="4">4x</label>
+          <div class="input-group">
+            <input type="radio" name="size" value="0.5" required />
+            <label for="0.5">0.5x</label>
+            <input type="radio" name="size" value="1" />
+            <label for="1">1x</label>
+            <input type="radio" name="size" value="2" />
+            <label for="2">2x</label>
+            <input type="radio" name="size" value="3" />
+            <label for="3">3x</label>
+            <input type="radio" name="size" value="4" />
+            <label for="4">4x</label>
+          </div>
         </fieldset>
         <fieldset>
           <legend for="weight">Grosor de la fuente:</legend>
-          <input type="radio" name="weight" value="lighter" />
-          <label for="lighter">0.5x</label>
-          <input type="radio" name="weight" value="normal" />
-          <label for="normal">1x</label>
-          <input type="radio" name="weight" value="bold" />
-          <label for="bold">1.5x</label>
-          <input type="radio" name="weight" value="bolder" />
-          <label for="bolder">2x</label>
+          <div class="input-group">
+            <input type="radio" name="weight" value="lighter" />
+            <label for="lighter">0.5x</label>
+            <input type="radio" name="weight" value="normal" />
+            <label for="normal">1x</label>
+            <input type="radio" name="weight" value="bold" />
+            <label for="bold">1.5x</label>
+            <input type="radio" name="weight" value="bolder" />
+            <label for="bolder">2x</label>
+          </div>
         </fieldset>
         <fieldset>
           <legend for="move">Movimiento:</legend>
-          <input type="radio" name="move" value="motionless" required />
-          <label for="motionless">Ninguno</label>
-          <input type="radio" name="move" value="x-ltr" />
-          <label for="x-ltr">&#8594;</label>
-          <input type="radio" name="move" value="x-rtl" />
-          <label for="x-rtl">&#8592;</label>
-          <input type="radio" name="move" value="y-ttb" />
-          <label for="y-ttb">&#8595;</label>
-          <input type="radio" name="move" value="y-btt" />
-          <label for="y-btt">&#8593;</label>
-          <input type="radio" name="move" value="d-ttb" />
-          <label for="d-ttb">&#8600;</label>
-          <input type="radio" name="move" value="d-btt" />
-          <label for="d-btt">&#8598;</label>
-          <input type="radio" name="move" value="ad-ttb" />
-          <label for="ad-ttb">&#8601;</label>
-          <input type="radio" name="move" value="ad-btt" />
-          <label for="ad-btt">&#8599;</label>
+          <div class="lain">
+            <input type="radio" name="move" value="motionless" required />
+            <label for="motionless">Ninguno</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="x-ltr" />
+            <label for="x-ltr">&#8594;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="x-rtl" />
+            <label for="x-rtl">&#8592;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="y-ttb" />
+            <label for="y-ttb">&#8595;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="y-btt" />
+            <label for="y-btt">&#8593;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="d-ttb" />
+            <label for="d-ttb">&#8600;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="d-btt" />
+            <label for="d-btt">&#8598;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="ad-ttb" />
+            <label for="ad-ttb">&#8601;</label>
+          </div>
+          <div class="lain">
+            <input type="radio" name="move" value="ad-btt" />
+            <label for="ad-btt">&#8599;</label>
+          </div>
         </fieldset>
         <fieldset>
           <legend for="speed">Velocidad:</legend>
-          <input type="radio" name="speed" value="10" />
-          <label for="10">1x</label>
-          <input type="radio" name="speed" value="7.5" />
-          <label for="7.5">2x</label>
-          <input type="radio" name="speed" value="5" />
-          <label for="5">3x</label>
-          <input type="radio" name="speed" value="2.5" />
-          <label for="2.5">4x</label>
-          <input type="radio" name="speed" value="1" />
-          <label for="1">5x</label>
+          <div class="input-group">
+            <input type="radio" name="speed" value="10" />
+            <label for="10">1x</label>
+            <input type="radio" name="speed" value="7.5" />
+            <label for="7.5">2x</label>
+            <input type="radio" name="speed" value="5" />
+            <label for="5">3x</label>
+            <input type="radio" name="speed" value="2.5" />
+            <label for="2.5">4x</label>
+            <input type="radio" name="speed" value="1" />
+            <label for="1">5x</label>
+          </div>
         </fieldset>
         <br />
         <div class="btn-group">
-          <button type="submit" name="start" disabled>Iniciar</button>
-          <button type="button" name="end" disabled>Finalizar</button>
+          <button type="submit" name="start">Iniciar</button>
+          <button type="reset" name="reset">Reiniciar</button>
+          <button type="button" name="end">Finalizar</button>
         </div>
       </form>
-    </section>
+    </main>
     <footer>
       <small
-        >&copy;<br />2020<br />
+        >&copy;<br />2021<br />
         Tatiana Arandia &nbsp;&&nbsp; Valentina Cuenca
       </small>
     </footer>
