@@ -33,11 +33,10 @@
         <fieldset>
           <legend>Pantalla</legend>
           <div class="lain">
-            <label for="bgColor">Color del fondo:</label>
             <input type="color" name="bgColor" id="bgColor" value="#000000" />
+            <label for="bgColor">Color del fondo</label>
           </div>
           <div class="lain">
-            <label for="bgOpacity">Opacidad del fondo:</label>
             <input
               type="range"
               id="bgOpacity"
@@ -47,18 +46,18 @@
               step="0.1"
               value="1"
             />
+            <label for="bgOpacity">Opacidad</label>
           </div>
           <div class="lain">
-            <label for="contentColor">Color del contenido:</label>
             <input
               type="color"
               name="contentColor"
               id="contentColor"
               value="#ffffff"
             />
+            <label for="contentColor">Color del contenido</label>
           </div>
           <div class="lain">
-            <label for="contentOpacity">Opacidad del contenido:</label>
             <input
               type="range"
               id="contentOpacity"
@@ -68,6 +67,7 @@
               step="0.1"
               value="1"
             />
+            <label for="contentOpacity">Opacidad</label>
           </div>
         </fieldset>
         <fieldset>
@@ -91,28 +91,42 @@
         </fieldset>
         <fieldset>
           <legend for="size">Tamaño de la fuente:</legend>
-          <div class="input-group">
+          <div class="lain">
             <input type="radio" name="size" value="0.5" required />
             <label for="0.5">0.5x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="size" value="1" />
             <label for="1">1x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="size" value="2" />
             <label for="2">2x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="size" value="3" />
             <label for="3">3x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="size" value="4" />
             <label for="4">4x</label>
           </div>
         </fieldset>
         <fieldset>
           <legend for="weight">Grosor de la fuente:</legend>
-          <div class="input-group">
+          <div class="lain">
             <input type="radio" name="weight" value="lighter" />
             <label for="lighter">0.5x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="weight" value="normal" />
             <label for="normal">1x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="weight" value="bold" />
             <label for="bold">1.5x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="weight" value="bolder" />
             <label for="bolder">2x</label>
           </div>
@@ -158,15 +172,23 @@
         </fieldset>
         <fieldset>
           <legend for="speed">Velocidad:</legend>
-          <div class="input-group">
+          <div class="lain">
             <input type="radio" name="speed" value="10" />
             <label for="10">1x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="speed" value="7.5" />
             <label for="7.5">2x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="speed" value="5" />
             <label for="5">3x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="speed" value="2.5" />
             <label for="2.5">4x</label>
+          </div>
+          <div class="lain">
             <input type="radio" name="speed" value="1" />
             <label for="1">5x</label>
           </div>
