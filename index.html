@@ -28,10 +28,10 @@
     <main role="main" class="container">
       <h1 class="title">Prueba dinámica de agudeza visual</h1>
       <div id="display" class="display"></div>
-      <p id="messages" class="messages"></p>
+      <p id="alert" class="alert"></p>
       <form id="myForm" class="my-form">
         <fieldset>
-          <legend>Pantalla</legend>
+          <legend>Colores <span>(opcional)</span></legend>
           <div class="lain">
             <input type="color" name="bgColor" id="bgColor" value="#000000" />
             <label for="bgColor">Color del fondo</label>
@@ -71,7 +71,7 @@
           </div>
         </fieldset>
         <fieldset>
-          <legend for="content">Contenido:</legend>
+          <legend for="content">Contenido <span>(obligatorio)</span></legend>
           <div class="lain">
             <input type="radio" name="content" value="alphabet" required />
             <label for="alphabet">Letras</label>
@@ -90,7 +90,9 @@
           </div>
         </fieldset>
         <fieldset>
-          <legend for="size">Tamaño de la fuente:</legend>
+          <legend for="size">
+            Tamaño de la fuente <span>(obligatorio)</span>
+          </legend>
           <div class="lain">
             <input type="radio" name="size" value="0.5" required />
             <label for="0.5">0.5x</label>
@@ -113,9 +115,11 @@
           </div>
         </fieldset>
         <fieldset>
-          <legend for="weight">Grosor de la fuente:</legend>
+          <legend for="weight">
+            Grosor de la fuente <span>(obligatorio)</span>
+          </legend>
           <div class="lain">
-            <input type="radio" name="weight" value="lighter" />
+            <input type="radio" name="weight" value="lighter" required />
             <label for="lighter">0.5x</label>
           </div>
           <div class="lain">
@@ -132,7 +136,7 @@
           </div>
         </fieldset>
         <fieldset>
-          <legend for="move">Movimiento:</legend>
+          <legend for="move">Movimiento <span>(obligatorio)</span></legend>
           <div class="lain">
             <input type="radio" name="move" value="motionless" required />
             <label for="motionless">Ninguno</label>
@@ -171,9 +175,9 @@
           </div>
         </fieldset>
         <fieldset>
-          <legend for="speed">Velocidad:</legend>
+          <legend for="speed">Velocidad <span>(obligatorio)</span></legend>
           <div class="lain">
-            <input type="radio" name="speed" value="10" />
+            <input type="radio" name="speed" value="10" required />
             <label for="10">1x</label>
           </div>
           <div class="lain">
@@ -195,9 +199,8 @@
         </fieldset>
         <br />
         <div class="btn-group">
-          <button type="submit" name="start">Iniciar</button>
-          <button type="reset" name="reset">Reiniciar</button>
-          <button type="button" name="end">Finalizar</button>
+          <button type="submit" name="start" disabled>Iniciar</button>
+          <button type="reset" name="end" disabled>Finalizar</button>
         </div>
       </form>
     </main>

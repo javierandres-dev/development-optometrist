@@ -2,30 +2,39 @@
 import * as data from './data.js';
 
 const d = document,
+  $display = d.getElementById('display'),
+  $alert = d.getElementById('alert'),
+  $div = d.createElement('div'),
   $form = d.getElementById('myForm'),
   $bgColor = $form.bgColor,
-  $contentColor = $form.contentColor,
   $bgOpacity = $form.bgOpacity,
+  $contentColor = $form.contentColor,
   $contentOpacity = $form.contentOpacity,
+  $content = $form.content,
+  $size = $form.size,
+  $weight = $form.weight,
+  $move = $form.move,
+  $speed = $form.speed,
   $btnStart = $form.start,
-  $btnReset = $form.reset,
-  $btnEnd = $form.end,
-  $display = d.getElementById('display'),
-  $messages = d.getElementById('messages'),
-  $div = d.createElement('div');
+  $btnEnd = $form.end;
 
-let flag = false,
-  showMessage = undefined,
-  showContent = undefined,
-  inputs = 0;
+let myObject = {
+  content: '',
+  size: '',
+  weight: '',
+  move: '',
+  speed: '',
+};
+
+let interval = undefined;
 
 d.addEventListener('DOMContentLoaded', (e) => {
-  eventListeners(e);
+  eventListeners();
+  showAlert('warning', 'Seleccione campos obligatorios');
 });
 
 const eventListeners = () => {
   $form.addEventListener('change', (e) => {
-    //console.log(e.target.value);
     if (e.target === $bgColor) {
       $display.style.backgroundColor = $bgColor.value;
     }
@@ -41,50 +50,91 @@ const eventListeners = () => {
         $contentOpacity.value
       );
     }
+    if (e.target.name === 'content') {
+      myObject.content = $content.value;
+    }
+    if (e.target.name === 'size') {
+      myObject.size = $size.value;
+    }
+    if (e.target.name === 'weight') {
+      myObject.weight = $weight.value;
+    }
+    if (e.target.name === 'move') {
+      myObject.move = $move.value;
+    }
+    if (e.target.name === 'speed') {
+      myObject.speed = $speed.value;
+    }
+    enableSubmit();
   });
 
   $form.addEventListener('submit', (e) => {
     e.preventDefault();
+    showContent();
+    showAlert(
+      'success',
+      'Para cambiar parámetros o detener la prueba presione el botón de "Finalizar"'
+    );
+    $btnStart.disabled = true;
     $btnEnd.disabled = false;
-    $btnStart.disabled = true;
-    const $content = $form.content.value,
-      $size = $form.size.value,
-      $weight = $form.weight.value,
-      $move = $form.move.value,
-      $speed = $form.speed.value;
-    $div.style.fontSize = `${$size}rem`;
-    $div.style.fontWeight = `${$weight}`;
-    $div.classList.add(`${$move}`);
-    if ($move !== 'motionless') {
-      $div.style['animationDuration'] = `${$speed}s`;
-    }
-    let starting = $speed - 1;
-    showMessage = setInterval(() => {
-      $messages.innerText = `Iniciará en: ${starting--}`;
-    }, 1000);
-    showContent = setInterval(() => {
-      clearInterval(showMessage);
-      $messages.innerText = '';
-      $div.innerText = getElements($content);
-      $display.appendChild($div);
-    }, $speed * 1000);
-  });
-
-  $btnReset.addEventListener('click', (e) => {
-    $btnStart.disabled = true;
-    $btnReset.disabled = true;
-    $btnEnd.disabled = true;
-    $form.reset();
   });
 
   $btnEnd.addEventListener('click', (e) => {
-    clearInterval(showContent);
-    inputs = 0;
+    e.preventDefault();
+    clearInterval(interval);
     $display.removeChild($div);
-    $btnStart.disabled = true;
-    $btnEnd.disabled = true;
+    myObject = {
+      content: '',
+      size: '',
+      weight: '',
+      move: '',
+      speed: '',
+    };
+    $display.style.backgroundColor = '#000000';
+    $display.style.color = '#FFFFFF';
+    showAlert('warning', 'Seleccione campos obligatorios');
     $form.reset();
+    $btnEnd.disabled = true;
   });
+};
+
+const enableSubmit = () => {
+  if (isValid()) {
+    $btnStart.disabled = false;
+    showAlert('success', 'Presione el botón "Iniciar"');
+  }
+};
+
+const isValid = () => {
+  let result = undefined;
+  Object.values(myObject).forEach((val) => {
+    if (val.length === 0) {
+      result = false;
+      return;
+    } else {
+      result = true;
+    }
+  });
+  return result;
+};
+
+const showContent = () => {
+  const { content, size, weight, move, speed } = myObject;
+  $div.style.fontSize = `${size}rem`;
+  $div.style.fontWeight = `${weight}`;
+  $div.classList.add(`${move}`);
+  if (move !== 'motionless') {
+    $div.style['animationDuration'] = `${speed}s`;
+  }
+  interval = setInterval(() => {
+    $div.innerText = getElements(content);
+    $display.appendChild($div);
+  }, speed * 1000);
+};
+
+const showAlert = (type = '', message = '') => {
+  $alert.className = `alert ${type}`;
+  $alert.textContent = message;
 };
 
 const getElements = (content) => {
