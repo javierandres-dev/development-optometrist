@@ -8,6 +8,7 @@ const d = document,
   $form = d.getElementById('myForm'),
   $bgColor = $form.bgColor,
   $bgOpacity = $form.bgOpacity,
+  $bgImage = $form.bgImage,
   $contentColor = $form.contentColor,
   $contentOpacity = $form.contentOpacity,
   $content = $form.content,
@@ -50,6 +51,16 @@ const eventListeners = () => {
         $contentOpacity.value
       );
     }
+    if (e.target.name === 'bgImage') {
+      const url = `https://placeimg.com/300/160/${$bgImage.value}`;
+      /*
+      $display.innerHTML = `
+      <img src='${url}' />
+      `;
+      */
+      //$display.style.backgroundImage = `"url('"${url}"')"`;
+      $display.style.backgroundImage = "url('" + url + "')";
+    }
     if (e.target.name === 'content') {
       myObject.content = $content.value;
     }
@@ -90,6 +101,8 @@ const eventListeners = () => {
       move: '',
       speed: '',
     };
+    $display.innerHTML = null;
+    $display.style.backgroundImage = null;
     $display.style.backgroundColor = '#000000';
     $display.style.color = '#FFFFFF';
     showAlert('warning', 'Seleccione campos obligatorios');
