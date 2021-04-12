@@ -38,6 +38,9 @@ img {
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 /* ALERT
   ============================= */
