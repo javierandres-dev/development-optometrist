@@ -38,9 +38,6 @@ img {
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
 }
 /* ALERT
   ============================= */
@@ -62,6 +59,7 @@ img {
 /* FORM
   ============================= */
 .my-form {
+  width: 100%;
 }
 .my-form fieldset {
   margin-top: 1rem;
@@ -251,15 +249,40 @@ footer {
     max-width: 540px;
     padding: 0;
   }
+  .display {
+    width: 50rem;
+    height: 25rem;
+    margin: auto;
+  }
+  .alert {
+    width: 50rem;
+    margin: 1rem auto;
+  }
+  .my-form {
+    width: 50rem;
+    margin: auto;
+  }
 }
 @media screen and (min-width: 768px) {
   .container {
     max-width: 720px;
   }
+  .display {
+    width: 70rem;
+    height: 35rem;
+  }
+  .alert,
+  .my-form {
+    width: 60rem;
+  }
 }
 @media screen and (min-width: 992px) {
   .container {
     max-width: 960px;
+  }
+  .display {
+    width: 80rem;
+    height: 40rem;
   }
 }
 @media screen and (min-width: 1200px) {

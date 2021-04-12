@@ -52,14 +52,26 @@ const eventListeners = () => {
       );
     }
     if (e.target.name === 'bgImage') {
-      const url = `https://placeimg.com/300/160/${$bgImage.value}`;
-      /*
+      let url = undefined;
+      if ($bgImage.value === 'basketball' || $bgImage.value === 'soccer') {
+        url = `../images/${$bgImage.value}.jpg`;
+      } else {
+        url = `https://placeimg.com/800/400/${$bgImage.value}`;
+        //const url = `https://placeimg.com/300/160/${$bgImage.value}`;
+        /*
       $display.innerHTML = `
       <img src='${url}' />
       `;
       */
-      //$display.style.backgroundImage = `"url('"${url}"')"`;
-      $display.style.backgroundImage = "url('" + url + "')";
+        //$display.style.backgroundImage = `"url('"${url}"')"`;
+        //$display.style.backgroundImage = "url('" + url + "')";
+      }
+      $display.setAttribute(
+        'style',
+        'background-image: url(' +
+          url +
+          ');background-repeat: no-repeat;background-position: 50% 50%;background-size: 100% auto;'
+      );
     }
     if (e.target.name === 'content') {
       myObject.content = $content.value;
