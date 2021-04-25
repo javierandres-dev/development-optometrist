@@ -280,18 +280,40 @@ footer {
   .container {
     max-width: 960px;
   }
+  .f-right {
+    float: right;
+  }
   .display {
-    width: 80rem;
+    width: 65rem;
     height: 40rem;
+    float: left;
+  }
+  .alert,
+  .my-form {
+    width: 30rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 1140px;
   }
+  .display {
+    width: 83rem;
+  }
+  .alert,
+  .my-form {
+    width: 30rem;
+  }
 }
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1320px;
+  }
+  .display {
+    width: 101rem;
+  }
+  .alert,
+  .my-form {
+    width: 30rem;
   }
 }

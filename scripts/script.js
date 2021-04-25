@@ -13,7 +13,7 @@ const d = document,
   $contentOpacity = $form.contentOpacity,
   $content = $form.content,
   $size = $form.size,
-  $weight = $form.weight,
+  //$weight = $form.weight,
   $move = $form.move,
   $speed = $form.speed,
   $btnStart = $form.start,
@@ -22,7 +22,7 @@ const d = document,
 let myObject = {
   content: '',
   size: '',
-  weight: '',
+  //weight: '',
   move: '',
   speed: '',
 };
@@ -79,9 +79,9 @@ const eventListeners = () => {
     if (e.target.name === 'size') {
       myObject.size = $size.value;
     }
-    if (e.target.name === 'weight') {
-      myObject.weight = $weight.value;
-    }
+    //if (e.target.name === 'weight') {
+    //myObject.weight = $weight.value;
+    //}
     if (e.target.name === 'move') {
       myObject.move = $move.value;
     }
@@ -109,7 +109,7 @@ const eventListeners = () => {
     myObject = {
       content: '',
       size: '',
-      weight: '',
+      //weight: '',
       move: '',
       speed: '',
     };
@@ -144,9 +144,10 @@ const isValid = () => {
 };
 
 const showContent = () => {
-  const { content, size, weight, move, speed } = myObject;
+  //const { content, size, weight, move, speed } = myObject;
+  const { content, size, move, speed } = myObject;
   $div.style.fontSize = `${size}rem`;
-  $div.style.fontWeight = `${weight}`;
+  //$div.style.fontWeight = `${weight}`;
   $div.classList.add(`${move}`);
   if (move !== 'motionless') {
     $div.style['animationDuration'] = `${speed}s`;
