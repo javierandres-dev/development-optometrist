@@ -15,7 +15,7 @@
     />
     <meta name="owner" content="Tatiana Arandia, Valentina Cuenca" />
     <meta name="copyright" content="Tatiana Arandia, Valentina Cuenca" />
-    <meta name="author" content="Tatiana Arandia, Valentina Cuenca" />
+    <meta name="author" content="Javier Andrés Garzón Patarroyo" />
     <meta name="web_author" content="https://www.javierandresgp.com" />
     <link rel="preload" href="./styles/normalize.css" as="style" />
     <link rel="stylesheet" href="./styles/normalize.css" />
@@ -30,13 +30,40 @@
     </header>
     <main role="main" class="container">
       <form id="myForm" class="my-form">
-        <div>
+        <div class="optional-group">
           <label for="bgColor">Color de fondo</label>
           <input type="color" name="bgColor" id="bgColor" value="#000000" />
-        </div>
-        <div>
+          <label for="bgOpacity">Opacidad</label>
+          <input
+            type="range"
+            id="bgOpacity"
+            name="bgOpacity"
+            min="0"
+            max="1"
+            step="0.25"
+            value="1"
+          />
+          <label for="contentColor">Color del contenido</label>
+          <input
+            type="color"
+            name="contentColor"
+            id="contentColor"
+            value="#ffffff"
+          />
+          <label for="contentOpacity">Opacidad</label>
+          <input
+            type="range"
+            id="contentOpacity"
+            name="contentOpacity"
+            min="0"
+            max="1"
+            step="0.25"
+            value="1"
+          />
           <select name="bgImage" id="bgImage">
-            <option value="" selected disabled hidden>Imagen de fondo</option>
+            <option value="" selected disabled hidden>
+              Imagen de fondo...
+            </option>
             <option value="baseball">Baseball</option>
             <option value="basketball">Basketball</option>
             <option value="soccer">Soccer</option>
@@ -44,51 +71,50 @@
             <option value="voleyball">Voleyball</option>
           </select>
         </div>
-        <div>
-          <select name="content" id="content">
-            <option value="" selected disabled hidden>
-              Contenido<span class="warning"> *</span>
-            </option>
-            <option value="numbers">Números</option>
-            <option value="lowercase">Letras minúsculas</option>
-            <option value="uppercase">Letras mayúsculas</option>
-            <option value="countries">Solo paises</option>
-            <option value="fruits">solo frutas</option>
-            <option value="sports">solo deportes</option>
-            <option value="words">Palabras de un golpe de voz</option>
-          </select>
-        </div>
-        <div>
-          <select name="move" id="move">
-            <option value="" selected disabled hidden>
-              Movimiento<span class="warning"> *</span>
-            </option>
-            <option value="random">Aleatorio</option>
-            <option value="x-ltr">&#8594;</option>
-            <option value="x-rtl">&#8592;</option>
-            <option value="y-ttb">&#8595;</option>
-            <option value="y-btt">&#8593;</option>
-            <option value="d-ttb">&#8600;</option>
-            <option value="d-btt">&#8598;</option>
-            <option value="ad-ttb">&#8601;</option>
-            <option value="ad-btt">&#8599;</option>
-          </select>
-        </div>
-        <div>
-          <select name="speed" id="speed">
-            <option value="" selected disabled hidden>
-              Velocidad<span class="warning"> *</span>
-            </option>
-            <option value="10">V1: 0.05 m/seg</option>
-            <option value="7.5">V2: 0.102 m/seg</option>
-            <option value="5">V3: 0.154 m/seg</option>
-            <option value="2.5">V4: 0.206 m/seg</option>
-            <option value="1">V5: 0.261 m/seg</option>
-          </select>
+        <div class="mandatory-group">
+          <div>
+            <span class="warning">*</span>
+            <select name="content" id="content">
+              <option value="" selected disabled hidden>Contenido...</option>
+              <option value="numbers">Números</option>
+              <option value="lowercase">Letras minúsculas</option>
+              <option value="uppercase">Letras mayúsculas</option>
+              <option value="countries">Solo paises</option>
+              <option value="fruits">solo frutas</option>
+              <option value="sports">solo deportes</option>
+              <option value="words">Palabras de un golpe de voz</option>
+            </select>
+          </div>
+          <div>
+            <span class="warning">*</span>
+            <select name="move" id="move">
+              <option value="" selected disabled hidden>Movimiento...</option>
+              <option value="random">Aleatorio</option>
+              <option value="x-ltr">&#8594;</option>
+              <option value="x-rtl">&#8592;</option>
+              <option value="y-ttb">&#8595;</option>
+              <option value="y-btt">&#8593;</option>
+              <option value="d-ttb">&#8600;</option>
+              <option value="d-btt">&#8598;</option>
+              <option value="ad-ttb">&#8601;</option>
+              <option value="ad-btt">&#8599;</option>
+            </select>
+          </div>
+          <div>
+            <span class="warning">*</span>
+            <select name="speed" id="speed">
+              <option value="" selected disabled hidden>Velocidad...</option>
+              <option value="10">V1: 0.05 m/seg</option>
+              <option value="7.5">V2: 0.102 m/seg</option>
+              <option value="5">V3: 0.154 m/seg</option>
+              <option value="2.5">V4: 0.206 m/seg</option>
+              <option value="1">V5: 0.261 m/seg</option>
+            </select>
+          </div>
         </div>
       </form>
-      <p id="alert" class="alert"></p>
       <div id="display" class="display"></div>
+      <p id="alert" class="alert"></p>
       <div class="btn-group">
         <button type="button" id="startBtn" name="startBtn" disabled>
           Iniciar
