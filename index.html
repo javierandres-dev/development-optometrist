@@ -25,272 +25,90 @@
     <title>Optometrist</title>
   </head>
   <body>
-    <main role="main" class="container">
+    <header>
       <h1 class="title">Prueba dinámica de agudeza visual</h1>
+    </header>
+    <main role="main" class="container">
+      <form id="myForm" class="my-form">
+        <div>
+          <label for="bgColor">Color de fondo</label>
+          <input type="color" name="bgColor" id="bgColor" value="#000000" />
+        </div>
+        <div>
+          <select name="bgImage" id="bgImage">
+            <option value="" selected disabled hidden>Imagen de fondo</option>
+            <option value="baseball">Baseball</option>
+            <option value="basketball">Basketball</option>
+            <option value="soccer">Soccer</option>
+            <option value="tennis">Tennis</option>
+            <option value="voleyball">Voleyball</option>
+          </select>
+        </div>
+        <div>
+          <select name="content" id="content">
+            <option value="" selected disabled hidden>
+              Contenido<span class="warning"> *</span>
+            </option>
+            <option value="numbers">Números</option>
+            <option value="lowercase">Letras minúsculas</option>
+            <option value="uppercase">Letras mayúsculas</option>
+            <option value="countries">Solo paises</option>
+            <option value="fruits">solo frutas</option>
+            <option value="sports">solo deportes</option>
+            <option value="words">Palabras de un golpe de voz</option>
+          </select>
+        </div>
+        <div>
+          <select name="move" id="move">
+            <option value="" selected disabled hidden>
+              Movimiento<span class="warning"> *</span>
+            </option>
+            <option value="random">Aleatorio</option>
+            <option value="x-ltr">&#8594;</option>
+            <option value="x-rtl">&#8592;</option>
+            <option value="y-ttb">&#8595;</option>
+            <option value="y-btt">&#8593;</option>
+            <option value="d-ttb">&#8600;</option>
+            <option value="d-btt">&#8598;</option>
+            <option value="ad-ttb">&#8601;</option>
+            <option value="ad-btt">&#8599;</option>
+          </select>
+        </div>
+        <div>
+          <select name="speed" id="speed">
+            <option value="" selected disabled hidden>
+              Velocidad<span class="warning"> *</span>
+            </option>
+            <option value="10">V1: 0.05 m/seg</option>
+            <option value="7.5">V2: 0.102 m/seg</option>
+            <option value="5">V3: 0.154 m/seg</option>
+            <option value="2.5">V4: 0.206 m/seg</option>
+            <option value="1">V5: 0.261 m/seg</option>
+          </select>
+        </div>
+      </form>
+      <p id="alert" class="alert"></p>
       <div id="display" class="display"></div>
-      <section class="f-right">
-        <p id="alert" class="alert"></p>
-        <form id="myForm" class="my-form">
-          <fieldset>
-            <legend>Colores <span>(opcional)</span></legend>
-            <div class="pair-li">
-              <input type="color" name="bgColor" id="bgColor" value="#000000" />
-              <label for="bgColor">Color del fondo</label>
-            </div>
-            <div class="pair-li">
-              <input
-                type="range"
-                id="bgOpacity"
-                name="bgOpacity"
-                min="0"
-                max="1"
-                step="0.25"
-                value="1"
-              />
-              <label for="bgOpacity">Opacidad</label>
-            </div>
-            <div class="pair-li">
-              <input
-                type="color"
-                name="contentColor"
-                id="contentColor"
-                value="#ffffff"
-              />
-              <label for="contentColor">Color del contenido</label>
-            </div>
-            <div class="pair-li">
-              <input
-                type="range"
-                id="contentOpacity"
-                name="contentOpacity"
-                min="0"
-                max="1"
-                step="0.25"
-                value="1"
-              />
-              <label for="contentOpacity">Opacidad</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend for="bgImage">
-              Imagen de fondo <span>(opcional)</span>
-            </legend>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="bgImage"
-                id="bgBasketball"
-                value="basketball"
-              />
-              <label for="bgBasketball">Basketball</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="bgImage" id="bgSoccer" value="soccer" />
-              <label for="bgSoccer">Soccer</label>
-            </div>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="bgImage"
-                id="bgAnimals"
-                value="animals"
-              />
-              <label for="bgAnimals">Animales</label>
-            </div>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="bgImage"
-                id="bgArchitecture"
-                value="arch"
-              />
-              <label for="bgArchitecture">Arquitectura</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="bgImage" id="bgNature" value="nature" />
-              <label for="bgNature">Naturaleza</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="bgImage" id="bgPeople" value="people" />
-              <label for="bgPeople">Personas</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="bgImage" id="bgTech" value="tech" />
-              <label for="bgTech">Tecnología</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend for="content">Contenido <span>(obligatorio)</span></legend>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="content"
-                id="alphabet"
-                value="alphabet"
-                required
-              />
-              <label for="alphabet">Letras</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="content" id="numbers" value="numbers" />
-              <label for="numbers">Números</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="content" id="animals" value="animals" />
-              <label for="animals">Nombre de animales</label>
-            </div>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="content"
-                id="countries"
-                value="countries"
-              />
-              <label for="countries">Nombre de paises</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend for="size">
-              Tamaño de la fuente <span>(obligatorio)</span>
-            </legend>
-            <div class="pair-li">
-              <input type="radio" name="size" id="s0.5" value="0.5" required />
-              <label for="s0.5">0.5x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="size" id="s1" value="1" />
-              <label for="s1">1x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="size" id="s2" value="2" />
-              <label for="s2">2x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="size" id="s3" value="3" />
-              <label for="s3">3x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="size" id="s4" value="4" />
-              <label for="s4">4x</label>
-            </div>
-          </fieldset>
-          <!--
-          <fieldset>
-            <legend for="weight">
-              Grosor de la fuente <span>(obligatorio)</span>
-            </legend>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="weight"
-                id="lighter"
-                value="lighter"
-                required
-              />
-              <label for="lighter">0.5x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="weight" id="normal" value="normal" />
-              <label for="normal">1x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="weight" id="bold" value="bold" />
-              <label for="bold">1.5x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="weight" id="bolder" value="bolder" />
-              <label for="bolder">2x</label>
-            </div>
-          </fieldset>
-          -->
-          <fieldset>
-            <legend for="move">Movimiento <span>(obligatorio)</span></legend>
-            <div class="pair-li">
-              <input
-                type="radio"
-                name="move"
-                id="motionless"
-                value="motionless"
-                required
-              />
-              <label for="motionless">Ninguno</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="x-ltr" value="x-ltr" />
-              <label for="x-ltr">&#8594;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="x-rtl" value="x-rtl" />
-              <label for="x-rtl">&#8592;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="y-ttb" value="y-ttb" />
-              <label for="y-ttb">&#8595;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="y-btt" value="y-btt" />
-              <label for="y-btt">&#8593;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="d-ttb" value="d-ttb" />
-              <label for="d-ttb">&#8600;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="d-btt" value="d-btt" />
-              <label for="d-btt">&#8598;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="ad-ttb" value="ad-ttb" />
-              <label for="ad-ttb">&#8601;</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="move" id="ad-btt" value="ad-btt" />
-              <label for="ad-btt">&#8599;</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend for="speed">Velocidad <span>(obligatorio)</span></legend>
-            <div class="pair-li">
-              <input type="radio" name="speed" id="10" value="10" required />
-              <label for="10">1x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="speed" id="7.5" value="7.5" />
-              <label for="7.5">2x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="speed" id="5" value="5" />
-              <label for="5">3x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="speed" id="2.5" value="2.5" />
-              <label for="2.5">4x</label>
-            </div>
-            <div class="pair-li">
-              <input type="radio" name="speed" id="1" value="1" />
-              <label for="1">5x</label>
-            </div>
-          </fieldset>
-          <br />
-          <div class="btn-group">
-            <button type="submit" name="start" disabled>Iniciar</button>
-            <button type="reset" name="end" disabled>Finalizar</button>
-          </div>
-        </form>
-      </section>
+      <div class="btn-group">
+        <button type="button" id="startBtn" name="startBtn" disabled>
+          Iniciar
+        </button>
+        <button type="button" id="endBtn" name="endBtn" disabled>
+          Finalizar
+        </button>
+      </div>
     </main>
-    <!--
     <footer>
       <small
         >&copy;<br />2021<br />
         Tatiana Arandia &nbsp;&&nbsp; Valentina Cuenca
       </small>
-    </footer>-->
+    </footer>
   </body>
   <script type="module" src="./scripts/script.js"></script>
   <noscript>
-    La página que está viendo requiere para su funcionamiento el uso de
-    JavaScript. Si lo ha deshabilitado intencionadamente, por favor vuelva a
-    activarlo o actualice la versión de su navegador.
+    Esta página requiere para su funcionamiento el uso de JavaScript. Si lo ha
+    deshabilitado intencionadamente, por favor vuelva a activarlo o actualice la
+    versión de su navegador.
   </noscript>
 </html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Prueba dinámica de agudeza visual" />
+    <meta
+      name="keywords"
+      content="Prueba dinámica de agudeza visual, optometría, examen visual"
+    />
+    <meta name="owner" content="Tatiana Arandia, Valentina Cuenca" />
+    <meta name="copyright" content="Tatiana Arandia, Valentina Cuenca" />
+    <meta name="author" content="Tatiana Arandia, Valentina Cuenca" />
+    <meta name="web_author" content="https://www.javierandresgp.com" />
+    <link rel="preload" href="./styles/normalize.css" as="style" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="preload" href="./styles/style.css" as="style" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <title>Optometrist</title>
+  </head>
+  <body>
+    <main role="main" class="container">
+      <h1 class="title">Prueba dinámica de agudeza visual</h1>
+
+      <div id="display" class="display"></div>
+      <section class="f-right">
+        <p id="alert" class="alert"></p>
+        <form id="myForm" class="my-form">
+          <fieldset>
+            <legend>Colores <span>(opcional)</span></legend>
+            <div class="pair-li">
+              <input type="color" name="bgColor" id="bgColor" value="#000000" />
+              <label for="bgColor">Color del fondo</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="range"
+                id="bgOpacity"
+                name="bgOpacity"
+                min="0"
+                max="1"
+                step="0.25"
+                value="1"
+              />
+              <label for="bgOpacity">Opacidad</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="color"
+                name="contentColor"
+                id="contentColor"
+                value="#ffffff"
+              />
+              <label for="contentColor">Color del contenido</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="range"
+                id="contentOpacity"
+                name="contentOpacity"
+                min="0"
+                max="1"
+                step="0.25"
+                value="1"
+              />
+              <label for="contentOpacity">Opacidad</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend for="bgImage">
+              Imagen de fondo <span>(opcional)</span>
+            </legend>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="bgImage"
+                id="bgBaseball"
+                value="baseball"
+              />
+              <label for="bgBaseball">Baseball</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="bgImage"
+                id="bgBasketball"
+                value="basketball"
+              />
+              <label for="bgBasketball">Basketball</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="bgImage" id="bgSoccer" value="soccer" />
+              <label for="bgSoccer">Soccer</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="bgImage" id="bgTennis" value="tennis" />
+              <label for="bgTennis">Tennis</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="bgImage"
+                id="bgVoleyball"
+                value="voleyball"
+              />
+              <label for="bgVoleyball">Voleyball</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend for="content">Contenido <span>(obligatorio)</span></legend>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="content"
+                id="alphabet"
+                value="alphabet"
+                required
+              />
+              <label for="alphabet">Letras minúsculas</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="content"
+                id="alphabet"
+                value="alphabet"
+                required
+              />
+              <label for="alphabet">Letras mayúsculas</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="content" id="numbers" value="numbers" />
+              <label for="numbers">Números</label>
+            </div>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="content"
+                id="countries"
+                value="countries"
+              />
+              <label for="countries">Solo paises</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="content" id="fruits" value="fruits" />
+              <label for="fruits">Solo frutas</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="content" id="sports" value="sports" />
+              <label for="sports">Solo deportes</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="content" id="words" value="words" />
+              <label for="words">Palabras de un golpe de voz</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend for="move">Movimiento <span>(obligatorio)</span></legend>
+            <div class="pair-li">
+              <input
+                type="radio"
+                name="move"
+                id="motionless"
+                value="motionless"
+                required
+              />
+              <label for="motionless">Aleatorio</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="x-ltr" value="x-ltr" />
+              <label for="x-ltr">&#8594;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="x-rtl" value="x-rtl" />
+              <label for="x-rtl">&#8592;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="y-ttb" value="y-ttb" />
+              <label for="y-ttb">&#8595;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="y-btt" value="y-btt" />
+              <label for="y-btt">&#8593;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="d-ttb" value="d-ttb" />
+              <label for="d-ttb">&#8600;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="d-btt" value="d-btt" />
+              <label for="d-btt">&#8598;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="ad-ttb" value="ad-ttb" />
+              <label for="ad-ttb">&#8601;</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="move" id="ad-btt" value="ad-btt" />
+              <label for="ad-btt">&#8599;</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend for="speed">Velocidad <span>(obligatorio)</span></legend>
+            <div class="pair-li">
+              <input type="radio" name="speed" id="10" value="10" required />
+              <label for="10">V1: 0.05 m/seg</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="speed" id="7.5" value="7.5" />
+              <label for="7.5">V2: 0.102 m/seg</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="speed" id="5" value="5" />
+              <label for="5">V3: 0.154 m/seg</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="speed" id="2.5" value="2.5" />
+              <label for="2.5">V4: 0.206 m/seg</label>
+            </div>
+            <div class="pair-li">
+              <input type="radio" name="speed" id="1" value="1" />
+              <label for="1">V5: 0.261 m/seg</label>
+            </div>
+          </fieldset>
+          <br />
+          <div class="btn-group">
+            <button type="submit" name="start" disabled>Iniciar</button>
+            <button type="reset" name="end" disabled>Finalizar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <small
+        >&copy;<br />2021<br />
+        Tatiana Arandia &nbsp;&&nbsp; Valentina Cuenca
+      </small>
+    </footer>
+  </body>
+  <script type="module" src="./scripts/script.js"></script>
+  <noscript>
+    Esta página requiere para su funcionamiento el uso de JavaScript. Si lo ha
+    deshabilitado intencionadamente, por favor vuelva a activarlo o actualice la
+    versión de su navegador.
+  </noscript>
+</html>

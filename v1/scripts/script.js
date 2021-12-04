@@ -4,10 +4,8 @@ import * as data from './data.js';
 const d = document,
   $display = d.getElementById('display'),
   $alert = d.getElementById('alert'),
-  $form = d.getElementById('myForm'),
-  $btnStart = d.getElementById('startBtn'),
-  $btnEnd = d.getElementById('endBtn'),
   $div = d.createElement('div'),
+  $form = d.getElementById('myForm'),
   $bgColor = $form.bgColor,
   $bgOpacity = $form.bgOpacity,
   $bgImage = $form.bgImage,
@@ -17,7 +15,9 @@ const d = document,
   $size = $form.size,
   //$weight = $form.weight,
   $move = $form.move,
-  $speed = $form.speed;
+  $speed = $form.speed,
+  $btnStart = $form.start,
+  $btnEnd = $form.end;
 
 let myObject = {
   content: '',
@@ -31,7 +31,7 @@ let interval = undefined;
 
 d.addEventListener('DOMContentLoaded', (e) => {
   eventListeners();
-  showAlert('warning', 'Seleccione campos obligatorios *');
+  showAlert('warning', 'Seleccione campos obligatorios');
 });
 
 const eventListeners = () => {
@@ -53,14 +53,18 @@ const eventListeners = () => {
     }
     if (e.target.name === 'bgImage') {
       let url = undefined;
-      if (
-        $bgImage.value === 'baseball' ||
-        $bgImage.value === 'basketball' ||
-        $bgImage.value === 'soccer' ||
-        $bgImage.value === 'tennis' ||
-        $bgImage.value === 'voleyball'
-      ) {
-        url = `../images/${$bgImage.value}.jpeg`;
+      if ($bgImage.value === 'basketball' || $bgImage.value === 'soccer') {
+        url = `../images/${$bgImage.value}.jpg`;
+      } else {
+        url = `https://placeimg.com/800/400/${$bgImage.value}`;
+        //const url = `https://placeimg.com/300/160/${$bgImage.value}`;
+        /*
+      $display.innerHTML = `
+      <img src='${url}' />
+      `;
+      */
+        //$display.style.backgroundImage = `"url('"${url}"')"`;
+        //$display.style.backgroundImage = "url('" + url + "')";
       }
       $display.setAttribute(
         'style',
@@ -87,7 +91,8 @@ const eventListeners = () => {
     enableSubmit();
   });
 
-  $btnStart.addEventListener('click', () => {
+  $form.addEventListener('submit', (e) => {
+    e.preventDefault();
     showContent();
     showAlert(
       'success',
@@ -97,8 +102,8 @@ const eventListeners = () => {
     $btnEnd.disabled = false;
   });
 
-  $btnEnd.addEventListener('click', () => {
-    console.log('btnEnd click... ');
+  $btnEnd.addEventListener('click', (e) => {
+    e.preventDefault();
     clearInterval(interval);
     $display.removeChild($div);
     myObject = {
