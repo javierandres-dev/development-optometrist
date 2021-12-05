@@ -19,7 +19,7 @@ img {
   height: auto;
 }
 select {
-  width: 16rem;
+  width: 20rem;
 }
 button {
   width: 16rem;
@@ -45,6 +45,7 @@ button {
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  font-size: 8rem;
 }
 /* ALERT
   ============================= */
@@ -68,11 +69,12 @@ button {
 }
 /* GROUPS
   ============================= */
-.optional-group, .mandatory-group {
+.optional-group,
+.mandatory-group {
   display: flex;
   margin: 1rem 0;
 }
-.optional-group{
+.optional-group {
   justify-content: space-between;
 }
 .mandatory-group {
