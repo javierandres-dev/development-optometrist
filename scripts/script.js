@@ -45,7 +45,8 @@ const eventListeners = () => {
       );
     }
     if (e.target.name === "bgImage") {
-      const url = `../images/${$bgImage.value}.jpeg`;
+      const baseUrl = "https://raw.githubusercontent.com/javierandresgp/development-optometrist/main/images/"
+      const url = `${baseUrl}${$bgImage.value}.jpeg`;
       $display.setAttribute(
         "style",
         "background-image: url(" +
