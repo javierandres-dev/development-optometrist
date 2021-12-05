@@ -33,16 +33,6 @@
         <div class="optional-group">
           <label for="bgColor">Color de fondo</label>
           <input type="color" name="bgColor" id="bgColor" value="#000000" />
-          <label for="bgOpacity">Opacidad</label>
-          <input
-            type="range"
-            id="bgOpacity"
-            name="bgOpacity"
-            min="0"
-            max="1"
-            step="0.25"
-            value="1"
-          />
           <label for="contentColor">Color del contenido</label>
           <input
             type="color"
@@ -50,28 +40,40 @@
             id="contentColor"
             value="#ffffff"
           />
-          <label for="contentOpacity">Opacidad</label>
-          <input
-            type="range"
-            id="contentOpacity"
-            name="contentOpacity"
-            min="0"
-            max="1"
-            step="0.25"
-            value="1"
-          />
           <select name="bgImage" id="bgImage">
             <option value="" selected disabled hidden>
               Imagen de fondo...
             </option>
             <option value="baseball">Baseball</option>
             <option value="basketball">Basketball</option>
-            <option value="soccer">Soccer</option>
+            <option value="soccer">Fútbol</option>
             <option value="tennis">Tennis</option>
             <option value="voleyball">Voleyball</option>
           </select>
+          <div>
+            <select name="distance" id="distance">
+              <option value="" selected disabled hidden>Distancia...</option>
+              <option value="">1m -> 20/150</option>
+              <option value="">2m -> 20/75</option>
+              <option value="">3m -> 20/50</option>
+              <option value="">4m -> 20/37</option>
+              <option value="">5m -> 20/30</option>
+              <option value="">6m -> 20/25</option>
+            </select>
+          </div>
         </div>
         <div class="mandatory-group">
+          <div>
+            <span class="warning">*</span>
+            <select name="contentOpacity" id="contentOpacity">
+              <option value="" selected disabled hidden>
+                Luminancia estímulo // contraste
+              </option>
+              <option value="0.25">A: 0.1 cd/m2 // M(A): 0.997</option>
+              <option value="0.62">B: 23 cd/m2 // M(B): 0.54</option>
+              <option value="1">C: 60 cd/m2 // M(C): 0.13</option>
+            </select>
+          </div>
           <div>
             <span class="warning">*</span>
             <select name="content" id="content">
